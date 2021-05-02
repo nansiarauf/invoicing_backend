@@ -25,7 +25,7 @@ app.use("/api/v1/user/inoice", invoiceRoutes);
 app.use("/api/v1/user/clients", clientRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Invoicing and payment reminder API");
+  res.send("<h1></h1>Invoicing and payment reminder API</h1>");
 });
 
 const port = process.env.PORT || 7000;
