@@ -57,7 +57,7 @@ const loginUser = async (req, res) => {
   );
   if (!verifiedPassword)
     return res.status(404).send("Invalid Email or Password");
-
+  res.status(200).json({ _id: user._id, email: user.email });
   //ASSIGN TOKEN AND REDIRECT USER TO DASHBOARD
   const token_id = jwt.sign({ _id: user._id }, process.env.SECRET_KEY, {
     expiresIn: "20d",
