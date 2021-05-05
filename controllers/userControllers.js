@@ -1,7 +1,7 @@
 const User = require("../models/userSchema");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const cookieParser = require("cookie-parser");
+const createToken = require("../utils/createToken");
 const {
   validateRegisterUser,
   validateUserLogin,
@@ -57,13 +57,13 @@ const loginUser = async (req, res) => {
   );
   if (!verifiedPassword)
     return res.status(404).send("Invalid Email or Password");
-  res.status(200).json({ _id: user._id, email: user.email, token_id: token });
+  res.status(200).json({ _id: user._id, email: user.email, token: creatToken });
   //ASSIGN TOKEN AND REDIRECT USER TO DASHBOARD
-  const token_id = jwt.sign({ _id: user._id }, process.env.SECRET_KEY, {
-    expiresIn: "20d",
-  });
-  res.header("authorization", token_id).send(token_id);
-  res.send("you are logged in");
+  // const token_id = jwt.sign({ _id: user._id }, process.env.SECRET_KEY, {
+  //   expiresIn: "20d",
+  // });
+  // res.header("authorization", token_id).send(token_id);
+  // res.send("you are logged in");
 };
 
 //LOGOUT USER
