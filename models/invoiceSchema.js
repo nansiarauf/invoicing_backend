@@ -5,6 +5,12 @@ const { model, Schema } = mongoose;
 
 const invoiceSchema = new Schema(
   {
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      require: true,
+      ref: "User",
+    },
+
     businessName: {
       type: String,
     },
@@ -28,7 +34,6 @@ const invoiceSchema = new Schema(
       type: String,
       required: true,
     },
-    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );

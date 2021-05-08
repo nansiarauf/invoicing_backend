@@ -21,7 +21,7 @@ app.use(cors());
 
 //ROUTES
 app.use("/api/v1/user", userRoutes);
-app.use("/api/v1/user/inoice", invoiceRoutes);
+app.use("/api/v1/user/invoice", invoiceRoutes);
 app.use("/api/v1/user/clients", clientRoutes);
 
 app.get("/", (req, res) => {

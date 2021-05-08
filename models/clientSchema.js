@@ -1,4 +1,3 @@
-const { string } = require("joi");
 const mongoose = require("mongoose");
 
 //DESTRUCTURING MODEL AND SCHEMA FROM MONGOOSE
