@@ -24,8 +24,7 @@ const createInvoice = async (req, res) => {
 
 //VIEW ALL SENT OUT INVOICE REMINDERS
 const allInvoices = async (req, res) => {
-  const id = req.params.user;
-  const invoices = await Invoice.findById(id);
+  const invoices = await Invoice.find({ createdBy: req.params.createdBy });
   res.status(201).json(invoices);
 };
 

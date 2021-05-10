@@ -7,6 +7,6 @@ const protectRoute = require("../middleware/userAuth");
 const router = express.Router();
 
 router.route("/newinvoice").post(protectRoute, createInvoice);
-router.route("/all/:user").get(protectRoute, allInvoices);
+router.route("/all/:createdBy").get(protectRoute, allInvoices);
 
 module.exports = router;
