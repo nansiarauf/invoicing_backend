@@ -10,6 +10,7 @@ const createInvoice = async (req, res) => {
 
   //NEW INVOICE
   const newInvoice = new Invoice({
+    createdBy: req.user,
     name: req.body.name,
     businessName: req.body.businessName,
     service: req.body.service,
@@ -23,7 +24,8 @@ const createInvoice = async (req, res) => {
 
 //VIEW ALL SENT OUT INVOICE REMINDERS
 const allInvoices = async (req, res) => {
-  const invoices = await Invoice.find();
+  const id = req.params.user;
+  const invoices = await Invoice.findById(id);
   res.status(201).json(invoices);
 };
 
