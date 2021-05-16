@@ -5,6 +5,11 @@ const { model, Schema } = mongoose;
 
 const clientSchema = new Schema(
   {
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      require: true,
+      ref: "User",
+    },
     businessName: {
       type: String,
     },
@@ -24,7 +29,6 @@ const clientSchema = new Schema(
       type: String,
       required: true,
     },
-    clientOf: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );
