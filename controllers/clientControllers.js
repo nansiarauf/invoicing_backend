@@ -30,7 +30,7 @@ const addClient = async (req, res) => {
 
 //VIEW ALL CLIENTS
 const getAllClients = async (req, res) => {
-  const clients = await Client.find();
+  const clients = await Client.find({ createdBy: req.params.createdBy });
   res.send(clients);
 };
 
