@@ -18,6 +18,7 @@ const addClient = async (req, res) => {
 
   //CREATING NEW CLIENT
   const newClient = new Client({
+    createdBy: req.user,
     businessName: req.body.businessName,
     name: req.body.name,
     email: req.body.email,
@@ -31,7 +32,7 @@ const addClient = async (req, res) => {
 //VIEW ALL CLIENTS
 const getAllClients = async (req, res) => {
   const clients = await Client.find({ createdBy: req.params.createdBy });
-  res.send(clients);
+  res.status(201).json(clients);
 };
 
 //GET A CLIENT BY NAME/ID
