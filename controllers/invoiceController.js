@@ -1,3 +1,4 @@
+const moment = require("moment");
 const Invoice = require("../models/invoiceSchema");
 const { invoiceValidation } = require("../utils/invoiceValidation");
 
@@ -16,7 +17,7 @@ const createInvoice = async (req, res) => {
     service: req.body.service,
     amount_due: req.body.amount_due,
     email: req.body.email,
-    reminder_date: req.body.reminder_date,
+    reminder_date: moment().format("MMM Do YYY").req.body.reminder_date,
   });
   await newInvoice.save();
   res.status(201).json(newInvoice);
